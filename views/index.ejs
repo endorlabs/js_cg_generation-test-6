@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+</head>
+<body>
+    <h1>Personal Budget Tracker</h1>
+    <h2>Your Transactions</h2>
+    <ul>
+        <% transactions.forEach(function(transaction) { %>
+            <li><%= transaction.title %> - $<%= transaction.amount %> on <%= transaction.date.toDateString() %></li>
+        <% }); %>
+    </ul>
+
+    <h2>Add a New Transaction</h2>
+    <form action="/add-transaction" method="post">
+        <input type="text" name="title" placeholder="Transaction Title" required>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <input type="date" name="date" required>
+        <button type="submit">Add Transaction</button>
+    </form>
+</body>
+</html>
